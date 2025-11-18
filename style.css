@@ -1,115 +1,35 @@
-/* Configuração geral */
-body {
-    background-color: #000000; /* Fundo preto */
-    color: #FFFFFF;           /* Texto branco (fallback) */
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Centraliza tudo */
-    text-align: center;
+// Espera todo o conteúdo da página carregar (boa prática)
+document.addEventListener("DOMContentLoaded", () => {
+  
+  // 1. Seleciona todas as seções que queremos animar
+  // (Neste caso, o header e todas as <section>)
+  const sections = document.querySelectorAll('header, section');
+
+  // 2. Configura o "Intersection Observer"
+  // Ele vai "observar" quando um elemento entra na tela
+  const observer = new IntersectionObserver((entries) => {
     
-    /* ADICIONADO: Aplica a animação */
-    animation: mudaCorTexto 3s linear infinite;
-}
+    // Roda para cada elemento que o observer está olhando
+    entries.forEach(entry => {
+      
+      // 'isIntersecting' é true se o elemento (ou parte dele) está na tela
+      if (entry.isIntersecting) {
+        
+        // 3. Adiciona a classe 'visible' ao elemento que apareceu
+        entry.target.classList.add('visible');
+        
+        // 4. Para de observar esse elemento (para a animação não repetir)
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    // A animação começa quando 10% (0.1) do elemento estiver visível
+    threshold: 0.1 
+  });
 
-h1, h2 {
-    color: #FFFFFF; /* Fallback */
+  // 5. Pede ao observer para observar cada uma das seções
+  sections.forEach(section => {
+    observer.observe(section);
+  });
 
-    /* ADICIONADO: Aplica a animação (precisa estar aqui também) */
-    animation: mudaCorTexto 3s linear infinite;
-}
-
-/* Cabeçalho e Foto de Perfil */
-header {
-    margin-top: 30px;
-    margin-bottom: 20px;
-}
-
-.profile-pic {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%; /* Deixa a foto redonda */
-    border: 3px solid #FFFFFF;
-    object-fit: cover; /* Garante que a foto não fique distorcida */
-}
-
-/* Seção de Informações */
-#info {
-    max-width: 600px;
-    margin-bottom: 30px;
-}
-
-#info ul {
-    list-style: none; /* Remove as bolinhas da lista */
-    padding: 0;
-}
-
-#info li {
-    margin: 5px 0;
-    font-size: 1.1em;
-}
-
-#info p {
-    font-size: 1.1em;
-    line-height: 1.6; /* Espaçamento entre linhas */
-}
-
-/* Galeria de Fotos */
-#gallery {
-    margin-bottom: 30px;
-}
-
-.gallery-container {
-    display: flex; /* Coloca as fotos lado a lado */
-    justify-content: center;
-    gap: 20px; /* Espaço entre as fotos */
-    flex-wrap: wrap; /* Permite quebrar a linha em telas pequenas */
-}
-
-.gallery-container img {
-    width: 300px;
-    height: 300px;
-    object-fit: cover;
-    border: 2px solid #FFFFFF;
-}
-
-/* Ícones Sociais */
-#social {
-    margin-bottom: 50px;
-}
-
-.social-icons a {
-    color: #FFFFFF; /* Cor do ícone (fallback) */
-    font-size: 40px; /* Tamanho do ícone */
-    margin: 0 15px; /* Espaçamento entre os ícones */
-    text-decoration: none; /* Remove sublinhado */
-
-    /* ADICIONADO: Aplica a animação nos ícones também */
-    animation: mudaCorTexto 3s linear infinite;
-}
-
-/* Efeito ao passar o mouse */
-.social-icons a:hover {
-    color: #CCCCCC; /* Muda a cor levemente (será sobreposto pela animação) */
-    /* Para manter um efeito hover, poderíamos aumentar o brilho, mas
-       a animação contínua já chama bastante atenção */
-}
-
-/*
- * ========================================
- * NOVO BLOCO DE ANIMAÇÃO ADICIONADO
- * ========================================
- * Define a animação "mudaCorTexto"
- * 3s / 6 etapas = 0.5s por cor
-*/
-@keyframes mudaCorTexto {
-    0%   { color: #FF0000; } /* Vermelho */
-    16%  { color: #FFA500; } /* Laranja */
-    33%  { color: #FFFF00; } /* Amarelo */
-    50%  { color: #00FF00; } /* Verde */
-    66%  { color: #0000FF; } /* Azul */
-    83%  { color: #800080; } /* Roxo */
-    100% { color: #FF0000; } /* Volta ao Vermelho */
-}
+});
