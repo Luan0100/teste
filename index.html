@@ -3,38 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Feliz Natal Mágico</title>
+    <title>Vai Corinthians! - O Time do Povo</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Mountains+of+Christmas:wght@400;700&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <div id="snow-container"></div>
-
     <header>
-        <h1 class="christmas-title">🎄 Feliz Natal! 🎄</h1>
-        <p>Que a magia desta época ilumine seus dias.</p>
+        <img src="https://upload.wikimedia.org/wikipedia/pt/b/b4/Corinthians_simbolo.png" alt="Escudo do Corinthians" class="logo-corinthians">
+        <h1>Sport Club Corinthians Paulista</h1>
     </header>
 
     <main>
+        <section class="hero">
+            <h2 class="chant">AQUI É CORINTHIANS!</h2>
+            <p>O Time do Povo. O Campeão dos Campeões.</p>
+        </section>
+
         <section class="gallery">
-            <div class="card">
-                <img src="https://loremflickr.com/400/300/christmas,tree" alt="Árvore de Natal">
-                <div class="card-info">A Árvore</div>
-            </div>
-            <div class="card">
-                <img src="https://loremflickr.com/400/300/christmas,gifts" alt="Presentes">
-                <div class="card-info">Os Presentes</div>
-            </div>
-            <div class="card">
-                <img src="https://loremflickr.com/400/300/christmas,lights" alt="Luzes de Natal">
-                <div class="card-info">As Luzes</div>
+            <h3>Momentos e Glórias</h3>
+            <div class="cards-container">
+                <div class="card">
+                    <img src="https://placehold.co/400x300/000/fff?text=Neo+Quimica+Arena" alt="Arena">
+                    <p>A Casa Fiel</p>
+                </div>
+                <div class="card">
+                    <img src="https://placehold.co/400x300/000/fff?text=Fiel+Torcida" alt="Torcida">
+                    <p>Bando de Loucos</p>
+                </div>
+                <div class="card">
+                    <img src="https://placehold.co/400x300/000/fff?text=Mundial+e+Liberta" alt="Troféus">
+                    <p>Glórias Eternas</p>
+                </div>
             </div>
         </section>
 
-        <section class="interaction-zone">
-            <h2>Abra seu presente surpresa!</h2>
-            <div id="gift-box" class="gift-box">
-                🎁
-            </div>
-            <p id="message" class="hidden
+        <section class="interactive">
+            <p>Clique para celebrar o gol!</p>
+            <button id="goal-btn">GRITAR GOL!</button>
+        </section>
+
+        <div id="goal-overlay" class="hidden">
+            <div class="goal-text">GOOOOOOOL!!!</div>
+        </div>
+    </main>
+
+    <footer>
+        <p>Vai Corinthians - 1910</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

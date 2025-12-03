@@ -1,9 +1,8 @@
+/* --- Reset e Variáveis --- */
 :root {
-    --red: #c0392b;
-    --green: #27ae60;
-    --gold: #f1c40f;
-    --dark: #2c3e50;
-    --white: #ecf0f1;
+    --black: #000000;
+    --white: #ffffff;
+    --gray: #333333;
 }
 
 * {
@@ -13,134 +12,159 @@
 }
 
 body {
-    background: linear-gradient(to bottom, #1a252f, #2c3e50);
+    background-color: var(--black);
     color: var(--white);
-    font-family: 'Poppins', sans-serif;
-    overflow-x: hidden; /* Previne barra de rolagem horizontal por causa da neve */
+    font-family: 'Oswald', sans-serif;
     text-align: center;
-    min-height: 100vh;
+    overflow-x: hidden;
 }
 
-/* --- Cabeçalho --- */
+/* --- Cabeçalho e ANIMAÇÃO 1 --- */
 header {
-    padding: 50px 20px;
+    padding: 30px 20px;
+    background: linear-gradient(to bottom, #1a1a1a, #000);
+    border-bottom: 2px solid var(--white);
+}
+
+.logo-corinthians {
+    width: 120px;
+    /* Animação 1: Entrada Giratória */
+    animation: logoEntry 1.5s ease-out forwards;
+}
+
+@keyframes logoEntry {
+    0% { transform: scale(0) rotate(-360deg); opacity: 0; }
+    80% { transform: scale(1.1) rotate(10deg); opacity: 1; }
+    100% { transform: scale(1) rotate(0deg); }
 }
 
 header h1 {
-    font-family: 'Mountains of Christmas', cursive;
-    font-size: 4rem;
-    color: var(--gold);
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-    /* ANIMAÇÃO 1: Título Pulsante */
-    animation: glow 2s infinite alternate;
+    margin-top: 15px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
-/* Keyframes Animação 1 */
-@keyframes glow {
-    from { text-shadow: 0 0 10px var(--gold), 0 0 20px var(--gold); transform: scale(1); }
-    to { text-shadow: 0 0 20px var(--red), 0 0 30px var(--red); transform: scale(1.05); }
+/* --- Hero e ANIMAÇÃO 2 --- */
+.hero {
+    padding: 50px 20px;
+    background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://placehold.co/1200x400/111/fff?text=Estadio+Lotado');
+    background-size: cover;
+    background-position: center;
 }
 
-/* --- Galeria --- */
+.chant {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    /* Animação 2: Pulsar Infinito */
+    animation: heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat {
+    0% { transform: scale(1); text-shadow: 0 0 10px var(--gray); }
+    50% { transform: scale(1.05); text-shadow: 0 0 20px var(--white); }
+    100% { transform: scale(1); text-shadow: 0 0 10px var(--gray); }
+}
+
+/* --- Galeria e ANIMAÇÃO 3 --- */
 .gallery {
+    padding: 40px 20px;
+}
+
+.cards-container {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
     gap: 20px;
-    padding: 20px;
+    flex-wrap: wrap;
+    margin-top: 20px;
 }
 
 .card {
     background: var(--white);
+    color: var(--black);
     padding: 10px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 8px;
     width: 300px;
-    color: var(--dark);
+    transition: all 0.4s ease; /* Prepara a transição */
+    cursor: pointer;
 }
 
 .card img {
     width: 100%;
-    border-radius: 5px;
+    border-radius: 4px;
 }
 
-/* ANIMAÇÃO 2: Hover Zoom */
+.card p {
+    font-weight: bold;
+    margin-top: 10px;
+    text-transform: uppercase;
+}
+
+/* Animação 3: Hover Effect (Zoom e Brilho) */
 .card:hover {
-    transform: translateY(-10px) scale(1.03);
-    box-shadow: 0 15px 25px rgba(241, 196, 15, 0.4); /* Sombra dourada */
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    background-color: #eee;
 }
 
-/* --- Área de Interação (Presente) --- */
-.interaction-zone {
+/* --- Botão Interativo --- */
+.interactive {
     margin: 50px 0;
-    padding: 20px;
 }
 
-.gift-box {
-    font-size: 5rem;
+#goal-btn {
+    padding: 15px 40px;
+    font-size: 1.5rem;
+    font-family: 'Oswald', sans-serif;
+    background-color: var(--white);
+    color: var(--black);
+    border: none;
     cursor: pointer;
-    display: inline-block;
-    user-select: none;
-    transition: transform 0.2s;
-    /* ANIMAÇÃO 3: Shake contínuo */
-    animation: shake 3s infinite;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 50px;
+    transition: background 0.3s;
 }
 
-/* Keyframes Animação 3 */
-@keyframes shake {
-    0% { transform: rotate(0deg); }
-    5% { transform: rotate(5deg); }
-    10% { transform: rotate(-5deg); }
-    15% { transform: rotate(5deg); }
-    20% { transform: rotate(0deg); }
-    100% { transform: rotate(0deg); } /* Pausa longa */
+#goal-btn:hover {
+    background-color: #ccc;
 }
 
-/* ANIMAÇÃO 4: Classe ativada via JS (Open/Pop) */
-.gift-open {
-    animation: popOpen 0.5s forwards !important; /* Sobrescreve o shake */
-}
-
-@keyframes popOpen {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.4) rotate(10deg); opacity: 0.8; }
-    100% { transform: scale(0); opacity: 0; }
-}
-
+/* --- ANIMAÇÃO 4 (Overlay via JS) --- */
 .hidden {
     display: none;
-    font-size: 1.5rem;
-    color: var(--gold);
-    margin-top: 20px;
-    animation: fadeIn 1s forwards;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+#goal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex; /* Flex para centralizar, mas controlado pelo JS */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.goal-text {
+    font-size: 5rem;
+    color: var(--white);
+    font-weight: bold;
+    border: 5px solid var(--white);
+    padding: 20px;
+    /* Animação do texto do gol */
+    animation: goalPop 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes goalPop {
+    0% { transform: scale(0); opacity: 0; }
+    60% { transform: scale(1.2); opacity: 1; }
+    100% { transform: scale(1); opacity: 1; }
 }
 
 footer {
-    margin-top: 50px;
     padding: 20px;
-    font-size: 0.9rem;
-    opacity: 0.7;
-}
-
-/* --- Neve (CSS para os elementos gerados pelo JS) --- */
-.snowflake {
-    position: fixed;
-    top: -10px;
-    color: white;
-    user-select: none;
-    pointer-events: none;
-    z-index: 9999;
-    /* Animação de queda definida no JS para duração variável, mas keyframes aqui */
-    animation-name: fall;
-    animation-timing-function: linear;
-}
-
-@keyframes fall {
-    to { transform: translateY(105vh); }
+    background-color: #111;
+    border-top: 1px solid #333;
 }
