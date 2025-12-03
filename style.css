@@ -1,35 +1,135 @@
-// Espera todo o conteúdo da página carregar (boa prática)
-document.addEventListener("DOMContentLoaded", () => {
-  
-  // 1. Seleciona todas as seções que queremos animar
-  // (Neste caso, o header e todas as <section>)
-  const sections = document.querySelectorAll('header, section');
+/* Paleta de Cores da Barbie */
+:root {
+    --rosa-barbie: #ff007f; /* Pink Vibrante */
+    --rosa-claro: #ffc0d8;
+    --preto-texto: #1a1a1a;
+    --fundo-pagina: #fef1f8;
+}
 
-  // 2. Configura o "Intersection Observer"
-  // Ele vai "observar" quando um elemento entra na tela
-  const observer = new IntersectionObserver((entries) => {
-    
-    // Roda para cada elemento que o observer está olhando
-    entries.forEach(entry => {
-      
-      // 'isIntersecting' é true se o elemento (ou parte dele) está na tela
-      if (entry.isIntersecting) {
-        
-        // 3. Adiciona a classe 'visible' ao elemento que apareceu
-        entry.target.classList.add('visible');
-        
-        // 4. Para de observar esse elemento (para a animação não repetir)
-        observer.unobserve(entry.target);
-      }
-    });
-  }, {
-    // A animação começa quando 10% (0.1) do elemento estiver visível
-    threshold: 0.1 
-  });
+body {
+    font-family: 'Arial', sans-serif; /* Use uma fonte mais sofisticada se preferir, como 'Georgia' */
+    margin: 0;
+    padding: 0;
+    background-color: var(--fundo-pagina);
+    color: var(--preto-texto);
+    line-height: 1.6;
+    transition: background-color 0.5s ease; /* Transição suave para o JavaScript */
+}
 
-  // 5. Pede ao observer para observar cada uma das seções
-  sections.forEach(section => {
-    observer.observe(section);
-  });
+/* Tipografia e Títulos */
+h1, h2 {
+    text-align: center;
+    color: var(--rosa-barbie);
+    font-weight: bold;
+}
 
-});
+h1 {
+    font-size: 2.5em;
+    padding: 20px 0;
+}
+
+h2 {
+    font-size: 1.8em;
+    margin-top: 40px;
+}
+
+/* Header e Navegação */
+header {
+    background-color: var(--rosa-claro);
+    padding: 10px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--preto-texto);
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+nav a:hover {
+    background-color: var(--rosa-barbie);
+    color: white;
+}
+
+/* Layout Principal */
+main {
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+section {
+    padding: 30px;
+    margin-bottom: 30px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+/* Seções de Destaque */
+.secao-destaque {
+    border-left: 5px solid var(--rosa-barbie);
+}
+
+.rosa-texto {
+    color: var(--rosa-barbie);
+}
+
+/* Cards de Profissões */
+.cards-profissoes {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.card {
+    background-color: var(--rosa-claro);
+    padding: 15px;
+    border-radius: 8px;
+    width: 30%;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Botão (Interatividade) */
+#mudarCorBtn {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: var(--rosa-barbie);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+#mudarCorBtn:hover {
+    background-color: #e5006b; /* Um tom mais escuro de rosa */
+    transform: scale(1.05);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 15px;
+    background-color: var(--rosa-barbie);
+    color: white;
+    margin-top: 40px;
+}
