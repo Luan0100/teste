@@ -1,64 +1,40 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu Portfólio Pessoal</title>
+    <title>Feliz Natal Mágico</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Mountains+of+Christmas:wght@400;700&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
 </head>
 <body>
+
+    <div id="snow-container"></div>
+
     <header>
-        <div class="perfil">
-            <img src="perfil.jpg" alt="Foto de Perfil" class="foto-perfil">
-            <h1>Seu Nome Completo</h1>
-            <p>Designer, Desenvolvedor Web, Fotógrafo, ou o seu Título Principal</p>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="#sobre">Sobre Mim</a></li>
-                <li><a href="#galeria">Galeria de Fotos</a></li>
-                <li><a href="#contato">Contato</a></li>
-            </ul>
-        </nav>
+        <h1 class="christmas-title">🎄 Feliz Natal! 🎄</h1>
+        <p>Que a magia desta época ilumine seus dias.</p>
     </header>
 
     <main>
-        <section id="sobre">
-            <h2>👋 Sobre Mim</h2>
-            <p>Olá! Eu sou Luan Marcos e moro em Araucaria. Sou apaixonado por Mulher e adoro explorar novas tecnologias.</p>
-            <p>Este site é um pequeno espaço para compartilhar alguns dos meus momentos favoritos e projetos pessoais.</p>
+        <section class="gallery">
+            <div class="card">
+                <img src="https://loremflickr.com/400/300/christmas,tree" alt="Árvore de Natal">
+                <div class="card-info">A Árvore</div>
+            </div>
+            <div class="card">
+                <img src="https://loremflickr.com/400/300/christmas,gifts" alt="Presentes">
+                <div class="card-info">Os Presentes</div>
+            </div>
+            <div class="card">
+                <img src="https://loremflickr.com/400/300/christmas,lights" alt="Luzes de Natal">
+                <div class="card-info">As Luzes</div>
+            </div>
         </section>
 
-        <section id="galeria">
-            <h2>📸 Galeria de Fotos</h2>
-            <div class="galeria-grid">
-                <img src="j.jpeg" alt="Descrição da Foto 1" class="foto-item">
-                <img src="g.jpeg" alt="Descrição da Foto 2" class="foto-item">
-                <img src="l.jpeg" alt="Descrição da Foto 3" class="foto-item">
-                <img src="e.jpeg" alt="Descrição da Foto 4" class="foto-item">
-                </div>
-        </section>
-
-        <section id="contato">
-            <h2>📧 Contato</h2>
-            <p>Minhas Redes</p>
-            <ul>
-                <li>Intagram: Luan.m.f.s</Luan></li>
-                <li>Whatsapp: (41) 985352970</li>
-            </ul>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2025 Luan . Todos os direitos reservados.</p>
-    </footer>
-
-    <div id="lightbox" class="lightbox">
-        <span class="fechar">&times;</span>
-        <img class="lightbox-conteudo" id="lightbox-img">
-        <div id="lightbox-caption"></div>
-    </div>
-
-    <script src="javascript.js"></script>
-</body>
-</html>
+        <section class="interaction-zone">
+            <h2>Abra seu presente surpresa!</h2>
+            <div id="gift-box" class="gift-box">
+                🎁
+            </div>
+            <p id="message" class="hidden

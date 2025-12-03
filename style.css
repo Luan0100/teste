@@ -1,166 +1,146 @@
-/* Configurações Globais */
 :root {
-    --cor-principal: #3498db; /* Azul moderno */
-    --cor-fundo: #f4f4f9;
-    --cor-texto: #333;
-    --cor-secundaria: #2c3e50;
+    --red: #c0392b;
+    --green: #27ae60;
+    --gold: #f1c40f;
+    --dark: #2c3e50;
+    --white: #ecf0f1;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: var(--cor-fundo);
-    color: var(--cor-texto);
-    line-height: 1.6;
-}
-
-/* Header e Navegação */
-header {
-    background-color: white;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 20px 0;
+    background: linear-gradient(to bottom, #1a252f, #2c3e50);
+    color: var(--white);
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden; /* Previne barra de rolagem horizontal por causa da neve */
     text-align: center;
+    min-height: 100vh;
 }
 
-.perfil {
-    margin-bottom: 20px;
+/* --- Cabeçalho --- */
+header {
+    padding: 50px 20px;
 }
 
-.foto-perfil {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%; /* Torna a imagem redonda */
-    object-fit: cover;
-    border: 5px solid var(--cor-principal);
+header h1 {
+    font-family: 'Mountains of Christmas', cursive;
+    font-size: 4rem;
+    color: var(--gold);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    /* ANIMAÇÃO 1: Título Pulsante */
+    animation: glow 2s infinite alternate;
 }
 
-h1 {
-    color: var(--cor-secundaria);
-    margin: 10px 0 5px;
+/* Keyframes Animação 1 */
+@keyframes glow {
+    from { text-shadow: 0 0 10px var(--gold), 0 0 20px var(--gold); transform: scale(1); }
+    to { text-shadow: 0 0 20px var(--red), 0 0 30px var(--red); transform: scale(1.05); }
 }
 
-nav ul {
-    list-style: none;
-    padding: 0;
+/* --- Galeria --- */
+.gallery {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
 }
 
-nav ul li {
-    display: inline;
-    margin: 0 15px;
+.card {
+    background: var(--white);
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 300px;
+    color: var(--dark);
 }
 
-nav a {
-    text-decoration: none;
-    color: var(--cor-principal);
-    font-weight: bold;
-    transition: color 0.3s;
-}
-
-nav a:hover {
-    color: var(--cor-secundaria);
-}
-
-/* Layout Principal */
-main {
-    max-width: 900px;
-    margin: 20px auto;
-    padding: 0 20px;
-}
-
-section {
-    padding: 30px;
-    margin-bottom: 30px;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-}
-
-h2 {
-    border-bottom: 2px solid var(--cor-principal);
-    padding-bottom: 10px;
-    margin-bottom: 20px;
-    color: var(--cor-secundaria);
-}
-
-/* Galeria de Fotos */
-.galeria-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* 3 colunas em telas maiores */
-    gap: 15px;
-}
-
-.foto-item {
+.card img {
     width: 100%;
-    height: 300px;
-    object-fit: cover; /* Garante que a imagem preencha o espaço sem distorcer */
-    cursor: pointer;
-    transition: transform 0.3s, opacity 0.3s;
     border-radius: 5px;
 }
 
-.foto-item:hover {
-    transform: scale(1.03);
-    opacity: 0.8;
+/* ANIMAÇÃO 2: Hover Zoom */
+.card:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 15px 25px rgba(241, 196, 15, 0.4); /* Sombra dourada */
 }
 
-/* Footer */
+/* --- Área de Interação (Presente) --- */
+.interaction-zone {
+    margin: 50px 0;
+    padding: 20px;
+}
+
+.gift-box {
+    font-size: 5rem;
+    cursor: pointer;
+    display: inline-block;
+    user-select: none;
+    transition: transform 0.2s;
+    /* ANIMAÇÃO 3: Shake contínuo */
+    animation: shake 3s infinite;
+}
+
+/* Keyframes Animação 3 */
+@keyframes shake {
+    0% { transform: rotate(0deg); }
+    5% { transform: rotate(5deg); }
+    10% { transform: rotate(-5deg); }
+    15% { transform: rotate(5deg); }
+    20% { transform: rotate(0deg); }
+    100% { transform: rotate(0deg); } /* Pausa longa */
+}
+
+/* ANIMAÇÃO 4: Classe ativada via JS (Open/Pop) */
+.gift-open {
+    animation: popOpen 0.5s forwards !important; /* Sobrescreve o shake */
+}
+
+@keyframes popOpen {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.4) rotate(10deg); opacity: 0.8; }
+    100% { transform: scale(0); opacity: 0; }
+}
+
+.hidden {
+    display: none;
+    font-size: 1.5rem;
+    color: var(--gold);
+    margin-top: 20px;
+    animation: fadeIn 1s forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
 footer {
-    text-align: center;
-    padding: 15px;
-    background-color: var(--cor-secundaria);
-    color: white;
-    margin-top: 40px;
+    margin-top: 50px;
+    padding: 20px;
+    font-size: 0.9rem;
+    opacity: 0.7;
 }
 
-/* Lightbox (Funcionalidade JavaScript) */
-.lightbox {
-    display: none; /* Escondido por padrão */
+/* --- Neve (CSS para os elementos gerados pelo JS) --- */
+.snowflake {
     position: fixed;
-    z-index: 1000; /* Sobre todos os outros elementos */
-    padding-top: 60px;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.9); /* Fundo escuro */
+    top: -10px;
+    color: white;
+    user-select: none;
+    pointer-events: none;
+    z-index: 9999;
+    /* Animação de queda definida no JS para duração variável, mas keyframes aqui */
+    animation-name: fall;
+    animation-timing-function: linear;
 }
 
-.lightbox-conteudo {
-    margin: auto;
-    display: block;
-    width: 80%;
-    max-width: 700px;
-    max-height: 80%;
-    object-fit: contain;
-}
-
-#lightbox-caption {
-    margin: auto;
-    display: block;
-    width: 80%;
-    max-width: 700px;
-    text-align: center;
-    color: #ccc;
-    padding: 10px 0;
-    height: 150px;
-}
-
-.fechar {
-    position: absolute;
-    top: 15px;
-    right: 35px;
-    color: #f1f1f1;
-    font-size: 40px;
-    font-weight: bold;
-    transition: 0.3s;
-    cursor: pointer;
-}
-
-.fechar:hover,
-.fechar:focus {
-    color: #bbb;
-    text-decoration: none;
-    cursor: pointer;
+@keyframes fall {
+    to { transform: translateY(105vh); }
 }
