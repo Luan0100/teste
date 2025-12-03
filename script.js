@@ -1,29 +1,46 @@
-// Arquivo script.js
+// Arquivo javascript.js
 
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Pegar o botão do HTML
-    const mudarCorBtn = document.getElementById('mudarCorBtn');
+    // 1. Seleciona todos os elementos da galeria
+    const fotos = document.querySelectorAll('.foto-item');
     
-    // Lista de cores inspiradas na Barbie
-    const coresBarbie = [
-        '#fef1f8', // Rosa Claro original
-        '#ffd1dc', // Outro tom de rosa
-        '#f08080', // Coral Suave
-        '#f5f5dc'  // Bege para dar um descanso visual
-    ];
+    // 2. Seleciona os elementos do Lightbox (Modal)
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxCaption = document.getElementById('lightbox-caption');
+    const fecharBtn = document.querySelector('.fechar');
 
-    let corAtualIndex = 0;
-
-    // 2. Adicionar um "ouvinte" de evento de clique ao botão
-    mudarCorBtn.addEventListener('click', () => {
-        // Mudar para a próxima cor na lista
-        corAtualIndex = (corAtualIndex + 1) % coresBarbie.length;
-        const novaCor = coresBarbie[corAtualIndex];
-
-        // 3. Aplicar a nova cor ao fundo do body
-        document.body.style.backgroundColor = novaCor;
-
-        // Opcional: Mudar o texto do botão
-        mudarCorBtn.textContent = (corAtualIndex === 0) ? 'Pink Power!' : `Cor Fundo #${corAtualIndex + 1}`;
+    // Função para abrir o lightbox
+    fotos.forEach(foto => {
+        foto.addEventListener('click', () => {
+            // Define o caminho da imagem grande
+            lightboxImg.src = foto.src;
+            
+            // Define a legenda com base no atributo 'alt'
+            lightboxCaption.innerHTML = foto.alt;
+            
+            // Exibe o lightbox
+            lightbox.style.display = 'block';
+        });
     });
+
+    // Função para fechar o lightbox ao clicar no "x"
+    fecharBtn.addEventListener('click', () => {
+        lightbox.style.display = 'none';
+    });
+
+    // Função para fechar o lightbox ao clicar fora da imagem
+    window.addEventListener('click', (event) => {
+        if (event.target === lightbox) {
+            lightbox.style.display = 'none';
+        }
+    });
+
+    // Função para fechar o lightbox com a tecla ESC
+    document.addEventListener('keydown', (event) => {
+        if (event.key === "Escape" && lightbox.style.display === 'block') {
+            lightbox.style.display = 'none';
+        }
+    });
+
 });

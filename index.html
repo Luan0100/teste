@@ -3,71 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Barbie: Seja o que Quiser Ser</title>
+    <title>Meu Portfólio Pessoal</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <h1 class="titulo-principal">O Mundo Mágico da Barbie</h1>
+        <div class="perfil">
+            <img src="perfil.jpg" alt="Foto de Perfil" class="foto-perfil">
+            <h1>Seu Nome Completo</h1>
+            <p>Designer, Desenvolvedor Web, Fotógrafo, ou o seu Título Principal</p>
+        </div>
         <nav>
             <ul>
-                <li><a href="#historia">História</a></li>
-                <li><a href="#profissoes">Profissões e Diversidade</a></li>
-                <li><a href="#curiosidades">Curiosidades</a></li>
+                <li><a href="#sobre">Sobre Mim</a></li>
+                <li><a href="#galeria">Galeria de Fotos</a></li>
+                <li><a href="#contato">Contato</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <section id="banner" class="secao-destaque">
-            <h2 class="rosa-texto">Mais que uma Boneca, um Ícone!</h2>
-            <p>Desde 1959, a Barbie inspira meninas a sonhar alto e a **Ser o que Quiserem Ser**.</p>
-            </section>
-
-        <section id="historia">
-            <h2>✨ A História de uma Lenda</h2>
-            <p>A boneca Barbie, criada por Ruth Handler, co-fundadora da Mattel, foi lançada em março de 1959. Ruth percebeu que as meninas queriam brincar com bonecas que representassem mulheres adultas, e não apenas bebês ou crianças.</p>
-            <p>O nome é uma homenagem à filha de Ruth, Barbara. A primeira Barbie usava um maiô preto e branco e representava uma "modelo fashion".</p>
+        <section id="sobre">
+            <h2>👋 Sobre Mim</h2>
+            <p>Olá! Eu sou [Seu Nome] e moro em [Sua Cidade]. Sou apaixonado por [Seu Hobby Principal] e adoro explorar novas tecnologias.</p>
+            <p>Este site é um pequeno espaço para compartilhar alguns dos meus momentos favoritos e projetos pessoais.</p>
         </section>
 
-        <section id="profissoes" class="secao-destaque">
-            <h2>💖 Profissões e Diversidade</h2>
-            <p>Ao longo dos anos, a Barbie teve mais de 200 carreiras, de enfermeira a astronauta, de veterinária a CEO. Essa variedade sempre teve como objetivo mostrar às crianças que o futuro é delas.</p>
-            <div class="cards-profissoes">
-                <div class="card">
-                    <h3>🚀 Astronauta (1965)</h3>
-                    <p>Barbie chegou à Lua quatro anos antes do homem!</p>
+        <section id="galeria">
+            <h2>📸 Galeria de Fotos</h2>
+            <div class="galeria-grid">
+                <img src="foto1.jpg" alt="Descrição da Foto 1" class="foto-item">
+                <img src="foto2.jpg" alt="Descrição da Foto 2" class="foto-item">
+                <img src="foto3.jpg" alt="Descrição da Foto 3" class="foto-item">
+                <img src="foto4.jpg" alt="Descrição da Foto 4" class="foto-item">
                 </div>
-                <div class="card">
-                    <h3>👩‍🔬 Cientista</h3>
-                    <p>Incentivando carreiras em ciência, tecnologia, engenharia e matemática (STEM).</p>
-                </div>
-                <div class="card">
-                    <h3>♿ Fashionista</h3>
-                    <p>As linhas atuais incluem bonecas com diferentes tipos de corpo, tons de pele e habilidades, como a Barbie em cadeira de rodas, promovendo a **inclusão**.</p>
-                </div>
-            </div>
         </section>
 
-        <section id="curiosidades">
-            <h2>💡 Curiosidades</h2>
+        <section id="contato">
+            <h2>📧 Contato</h2>
+            <p>Entre em contato comigo:</p>
             <ul>
-                <li>Seu nome completo é Barbara Millicent Roberts.</li>
-                <li>Seu namorado, Ken, foi lançado em 1961 e seu nome é uma homenagem ao filho de Ruth Handler, Kenneth.</li>
-                <li>Duas Barbies são vendidas a cada segundo no mundo!</li>
+                <li>Email: seu.email@exemplo.com</li>
+                <li>LinkedIn: /seu-linkedin</li>
             </ul>
-        </section>
-
-        <section id="interacao">
-            <h2>Mude a Cor do Fundo!</h2>
-            <button id="mudarCorBtn">Pink Power!</button>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2024 Fã Clube Não Oficial da Barbie. Inspirando gerações.</p>
+        <p>&copy; 2024 Seu Nome. Todos os direitos reservados.</p>
     </footer>
 
-    <script src="script.js"></script>
+    <div id="lightbox" class="lightbox">
+        <span class="fechar">&times;</span>
+        <img class="lightbox-conteudo" id="lightbox-img">
+        <div id="lightbox-caption"></div>
+    </div>
+
+    <script src="javascript.js"></script>
 </body>
 </html>
