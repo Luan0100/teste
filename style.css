@@ -1,170 +1,112 @@
-/* --- Reset e Variáveis --- */
-:root {
-    --black: #000000;
-    --white: #ffffff;
-    --gray: #333333;
-}
-
-* {
+/* Estilos Gerais */
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    background-color: #f4f4f4;
+    color: #333;
 }
 
-body {
-    background-color: var(--black);
-    color: var(--white);
-    font-family: 'Oswald', sans-serif;
-    text-align: center;
-    overflow-x: hidden;
-}
-
-/* --- Cabeçalho e ANIMAÇÃO 1 --- */
 header {
-    padding: 30px 20px;
-    background: linear-gradient(to bottom, #1a1a1a, #000);
-    border-bottom: 2px solid var(--white);
+    background-color: #1a4f35; /* Verde escuro */
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    border-bottom: 5px solid #ffcc00; /* Dourado */
 }
 
-.logo-corinthians {
-    width: 120px;
-    /* Animação 1: Entrada Giratória */
-    animation: logoEntry 1.5s ease-out forwards;
-}
-
-@keyframes logoEntry {
-    0% { transform: scale(0) rotate(-360deg); opacity: 0; }
-    80% { transform: scale(1.1) rotate(10deg); opacity: 1; }
-    100% { transform: scale(1) rotate(0deg); }
-}
-
-header h1 {
-    margin-top: 15px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
-
-/* --- Hero e ANIMAÇÃO 2 --- */
-.hero {
-    padding: 50px 20px;
-    background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://placehold.co/1200x400/111/fff?text=Estadio+Lotado');
-    background-size: cover;
-    background-position: center;
-}
-
-.chant {
-    font-size: 3rem;
-    margin-bottom: 10px;
-    /* Animação 2: Pulsar Infinito */
-    animation: heartbeat 1.5s infinite;
-}
-
-@keyframes heartbeat {
-    0% { transform: scale(1); text-shadow: 0 0 10px var(--gray); }
-    50% { transform: scale(1.05); text-shadow: 0 0 20px var(--white); }
-    100% { transform: scale(1); text-shadow: 0 0 10px var(--gray); }
-}
-
-/* --- Galeria e ANIMAÇÃO 3 --- */
-.gallery {
-    padding: 40px 20px;
-}
-
-.cards-container {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-    margin-top: 20px;
-}
-
-.card {
-    background: var(--white);
-    color: var(--black);
-    padding: 10px;
-    border-radius: 8px;
-    width: 300px;
-    transition: all 0.4s ease; /* Prepara a transição */
-    cursor: pointer;
-}
-
-.card img {
-    width: 100%;
-    border-radius: 4px;
-}
-
-.card p {
-    font-weight: bold;
-    margin-top: 10px;
-    text-transform: uppercase;
-}
-
-/* Animação 3: Hover Effect (Zoom e Brilho) */
-.card:hover {
-    transform: translateY(-10px) scale(1.02);
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
-    background-color: #eee;
-}
-
-/* --- Botão Interativo --- */
-.interactive {
-    margin: 50px 0;
-}
-
-#goal-btn {
-    padding: 15px 40px;
-    font-size: 1.5rem;
-    font-family: 'Oswald', sans-serif;
-    background-color: var(--white);
-    color: var(--black);
-    border: none;
-    cursor: pointer;
-    text-transform: uppercase;
-    font-weight: bold;
-    border-radius: 50px;
-    transition: background 0.3s;
-}
-
-#goal-btn:hover {
-    background-color: #ccc;
-}
-
-/* --- ANIMAÇÃO 4 (Overlay via JS) --- */
-.hidden {
-    display: none;
-}
-
-#goal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.9);
-    display: flex; /* Flex para centralizar, mas controlado pelo JS */
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-}
-
-.goal-text {
-    font-size: 5rem;
-    color: var(--white);
-    font-weight: bold;
-    border: 5px solid var(--white);
+main {
     padding: 20px;
-    /* Animação do texto do gol */
-    animation: goalPop 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    max-width: 1200px;
+    margin: 20px auto;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-@keyframes goalPop {
-    0% { transform: scale(0); opacity: 0; }
-    60% { transform: scale(1.2); opacity: 1; }
-    100% { transform: scale(1); opacity: 1; }
+.secao-detalhe {
+    margin-bottom: 40px;
+    padding: 20px;
+    border-left: 5px solid #1a4f35;
+    background-color: #f9f9f9;
+}
+
+h2 {
+    color: #007bff; /* Azul vibrante */
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 5px;
+}
+
+.imagem-container {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.imagem-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    background: #e0f7fa;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 4px;
+    transition: transform 0.3s ease;
+}
+
+ul li:hover {
+    transform: translateX(10px);
 }
 
 footer {
-    padding: 20px;
-    background-color: #111;
-    border-top: 1px solid #333;
+    text-align: center;
+    padding: 10px 0;
+    background-color: #333;
+    color: white;
+    margin-top: 20px;
+}
+
+
+/* --- ANIMAÇÕES APENAS COM CSS --- */
+
+/* Animação 1: Botão de Destaque com Transição de Cor */
+#animacao1 {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+    /* Transição para a animação */
+    transition: background-color 0.5s ease, transform 0.3s ease;
+}
+
+#animacao1:hover {
+    background-color: #28a745; /* Muda para verde ao passar o mouse */
+    transform: scale(1.05);
+}
+
+/* Animação 2: Ícone de Bola 'Flutuando' (usando keyframes) */
+@keyframes flutuar {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
+.icone-bola {
+    font-size: 30px;
+    text-align: center;
+    margin-top: 20px;
+    /* Aplica a animação */
+    animation: flutuar 2s infinite ease-in-out;
 }
