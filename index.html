@@ -3,55 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Futebol Masculino - História e Glória</title>
+    <title>Colégio Estadual Júlio Szymanski</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <header>
-        <h1>🏆 Futebol Masculino: A Paixão Global</h1>
+        <div class="container nav-container">
+            <div class="logo">
+                <h1>C.E. Júlio Szymanski</h1>
+            </div>
+            <nav>
+                <div class="mobile-menu">
+                    <div class="line1"></div>
+                    <div class="line2"></div>
+                    <div class="line3"></div>
+                </div>
+                <ul class="nav-list">
+                    <li><a href="#home">Início</a></li>
+                    <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="#cursos">Cursos</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <main>
-        <section id="introducao" class="secao-detalhe">
-            <h2>A Origem e a Evolução</h2>
-            <p>O futebol moderno nasceu na Inglaterra no século XIX, com a criação das primeiras regras unificadas pela **Football Association (FA)** em 1863. Desde então, evoluiu de um passatempo britânico para o esporte mais popular do planeta. A FIFA, fundada em 1904, governa o esporte internacionalmente.</p>
-            <div class="imagem-container">
-                <img src="historia.jpg" alt="Foto histórica de uma partida de futebol do século XIX">
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h2>Educação que transforma o futuro</h2>
+            <p>Formando cidadãos e profissionais em Araucária desde 1948.</p>
+            <a href="#cursos" class="btn">Conheça nossos Cursos</a>
+        </div>
+    </section>
+
+    <section id="sobre" class="container section-padding">
+        <h2 class="section-title">Sobre o Colégio</h2>
+        <div class="about-content">
+            <div class="text">
+                <p>O Colégio Estadual Júlio Szymanski é uma instituição tradicional localizada no centro de Araucária - PR. Comprometidos com a excelência acadêmica e a formação cidadã, oferecemos uma infraestrutura completa e um corpo docente qualificado.</p>
+                <p>Nossa missão é proporcionar um ambiente de aprendizado inclusivo, focando no desenvolvimento integral dos nossos alunos.</p>
             </div>
-        </section>
-
-        <section id="taticas" class="secao-detalhe">
-            <h2>Evolução Tática: Do WM ao Jogo Posicional</h2>
-            <p>As táticas são o coração intelectual do jogo. O antigo esquema **WM** deu lugar ao 4-4-2, e hoje o futebol moderno é dominado por variações do 4-3-3 e sistemas de **Jogo Posicional**, onde a posse de bola e a pressão alta (Gegenpressing) são cruciais.</p>
-            <div class="imagem-container">
-                <img src="tatica.jpg" alt="Diagrama de uma formação tática moderna (e.g., 4-3-3)">
+            <div class="image">
+                <img src="https://placehold.co/500x300/EEE/31343C?text=Fachada+do+Colegio" alt="Fachada do Colégio">
             </div>
-            <div id="animacao1" class="botao-destaque">Clique para Revelar Detalhe Tático</div>
-        </section>
+        </div>
+    </section>
 
-        <section id="competicoes" class="secao-detalhe">
-            <h2>As Maiores Competições</h2>
-            <ul>
-                <li>**Copa do Mundo FIFA:** O ápice do futebol, realizado a cada 4 anos, reunindo seleções nacionais.</li>
-                <li>**UEFA Champions League:** O torneio de clubes mais prestigiado da Europa.</li>
-                <li>**Copa Libertadores da América:** A principal competição de clubes do continente sul-americano.</li>
-            </ul>
-             <div id="animacao2" class="icone-bola">⚽</div>
-        </section>
-        
-        <section id="lendas" class="secao-detalhe">
-            <h2>Grandes Lendas e Recordes</h2>
-            <p>Nenhum esporte possui tantos ícones. De **Pelé** e **Maradona** a **Messi** e **Cristiano Ronaldo**, esses atletas definiram eras com seus talentos e recordes inigualáveis. O debate sobre o "Melhor de Todos os Tempos" é eterno.</p>
-            <div class="imagem-container">
-                <img src="lendas.jpg" alt="Montagem de fotos de grandes jogadores de futebol de diferentes épocas">
+    <section id="cursos" class="bg-light section-padding">
+        <div class="container">
+            <h2 class="section-title">Nossos Cursos</h2>
+            <div class="cards-grid">
+                <div class="card">
+                    <h3>Ensino Médio</h3>
+                    <p>Formação geral básica preparatória para o vestibular e mercado de trabalho, com foco no Novo Ensino Médio.</p>
+                </div>
+                <div class="card">
+                    <h3>Formação de Docentes</h3>
+                    <p>Curso tradicional para quem deseja ingressar na carreira da educação infantil e anos iniciais.</p>
+                </div>
+                <div class="card">
+                    <h3>Cursos Técnicos</h3>
+                    <p>Opções profissionalizantes integradas e subsequentes para rápida inserção no mercado.</p>
+                </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-    </main>
-
-    <footer>
-        <p>&copy; 2024 Detalhes do Futebol Masculino</p>
+    <footer id="contato">
+        <div class="container footer-content">
+            <div class="footer-info">
+                <h3>Localização</h3>
+                <p>Rua São Vicente de Paulo, 76</p>
+                <p>Centro, Araucária - PR</p>
+                <p>CEP: 83702-050</p>
+            </div>
+            <div class="footer-contact">
+                <h3>Fale Conosco</h3>
+                <p>Telefone: (41) 3642-1112</p>
+                <p>Email: contato@julioszymanski.pr.gov.br</p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; <span id="year"></span> Colégio Estadual Júlio Szymanski. Todos os direitos reservados.</p>
+        </div>
     </footer>
 
     <script src="script.js"></script>
